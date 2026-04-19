@@ -77,18 +77,20 @@ resource "google_cloud_run_v2_service" "evidence" {
           cpu    = "1"
           memory = "256Mi"
         }
+        # Throttle CPU when not handling requests (required for < 512Mi memory)
+        cpu_idle = true
       }
 
       # startup_probe must succeed before liveness_probe begins
-      # Gives nginx up to 10s to start (10 attempts × 1s period)
+      # Gives nginx up to 30s to start (10 attempts × 3s period)
       startup_probe {
         http_get {
           path = "/"
         }
         initial_delay_seconds = 0
-        period_seconds        = 1
+        period_seconds        = 3
         failure_threshold     = 10
-        timeout_seconds       = 3
+        timeout_seconds       = 2
       }
 
       liveness_probe {
