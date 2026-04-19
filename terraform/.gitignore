@@ -1,0 +1,11 @@
+# Sensitive variable values - never commit
+terraform.tfvars
+*.tfvars
+!*.tfvars.example
+
+# Local Terraform state (using GCS backend)
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform working directory
+.terraform/
