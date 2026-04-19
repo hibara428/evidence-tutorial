@@ -1,0 +1,5 @@
+name: bq_public
+type: bigquery
+options:
+  project_id: ${EVIDENCE_SOURCE__bq_public__project_id}
+  authenticator: gcloud-cli
