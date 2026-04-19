@@ -13,7 +13,7 @@ terraform {
   #   gcloud storage buckets update gs://hibara428-dev-tfstate --versioning
   backend "gcs" {
     bucket = "hibara428-dev-tfstate"
-    prefix = "evidence"
+    prefix = "evidence-tutorial"
   }
 }
 
@@ -23,7 +23,8 @@ provider "google" {
 }
 
 locals {
-  service_name = "evidence"
+  service_name    = "evidence-tutorial"
+  repository_name = "evidence-tutorial"
 }
 
 resource "google_project_service" "apis" {

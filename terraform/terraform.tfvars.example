@@ -1,14 +1,9 @@
 project_id = "hibara428-dev"
 region     = "asia-northeast1"
 
-# Create OAuth client manually via GCP console:
-#   APIs & Services > Credentials > Create Credentials > OAuth client ID
-iap_client_id     = "your-client-id.apps.googleusercontent.com"
-iap_client_secret = "your-client-secret"
-
 iap_allowed_members = [
   "user:your-email@example.com",
 ]
 
 # Set after `docker build` and `docker push`
-image = "asia-northeast1-docker.pkg.dev/hibara428-dev/evidence/app:latest"
+image = "asia-northeast1-docker.pkg.dev/hibara428-dev/evidence-tutorial/app:latest"

@@ -1,5 +1,5 @@
 resource "google_artifact_registry_repository" "evidence" {
-  repository_id = local.service_name
+  repository_id = local.repository_name
   format        = "DOCKER"
   location      = var.region
 
@@ -56,7 +56,6 @@ resource "google_cloud_run_v2_service" "evidence" {
   name                = local.service_name
   location            = var.region
   ingress             = "INGRESS_TRAFFIC_ALL"
-  iap_enabled         = true
   deletion_protection = false
 
   template {
