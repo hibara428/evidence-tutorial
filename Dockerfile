@@ -11,6 +11,10 @@ COPY . .
 
 RUN npm run build
 
+# Remove <link rel="manifest"> to prevent CORS errors when behind IAP
+# (browsers fetch manifest.webmanifest without credentials, causing IAP to redirect)
+RUN find /app/build -name "*.html" -exec sed -i 's/<link rel="manifest"[^>]*>//g' {} \;
+
 # ---
 
 FROM nginx:alpine
